@@ -33,8 +33,21 @@
   {
       echo "Error ".$sql. "<br>" . $conn->error;
   }
+  $result = mysqli_query($conn,"SELECT * FROM Client_message");
+  echo "<h2>The message you entered</h2>";
+  echo "<table border=1><tr><th>ID</th>
+  <th>Message</th></tr>";
+  while($row = mysqli_fetch_array($result))
+  {
+      echo "<tr>";
+      echo "<td>".$row['ID_No']."</td>";
+      echo "<td>".$row['Messages']."</td>";
+      echo "</tr>";
+  }
+  echo "</table>";
   $conn->close();
 ?>
+
 <script src="test.js"></script>
 </body>
 </html>
